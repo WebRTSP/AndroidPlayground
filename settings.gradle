@@ -1,0 +1,20 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/WebRTSP/libWebRTC-Android"
+            credentials {
+                username = settings.hasProperty("gpr.user") ? settings.getProperty("gpr.user") : System.getenv("USER")
+                password = settings.hasProperty("gpr.key") ? settings.getProperty("gpr.key") : System.getenv("TOKEN")
+            }
+        }
+    }
+}
+
+rootProject.name = "Android WebRTSP Playground"
+
+include ':app'
+include ':WebRTSP'
